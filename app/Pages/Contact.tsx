@@ -39,6 +39,8 @@ const Contact = () => {
               .then(
                 () => {
                   setEmailOpen(true)
+                  form.current?.reset()
+                  setTimeout(() => setEmailOpen(false), 4000)
                 },
                 () => {
                   alert('Failed to send :(')
@@ -132,6 +134,16 @@ const Contact = () => {
                         <p className={Cabinet.className + ' text-body-2'}>{formattedTime}</p>
                     </div>
                 </div>
+            </div>
+
+            {/* Toast notification */}
+            <div
+                className={`fixed bottom-8 right-8 z-50 flex items-center gap-3 rounded-full bg-offblacktxt px-5 py-3 shadow-lg transition-all duration-500 ${
+                    emailModalOpen ? 'translate-y-0 opacity-100' : 'translate-y-4 opacity-0 pointer-events-none'
+                }`}
+            >
+                <span className='flex h-2 w-2 rounded-full bg-green-400'></span>
+                <span className={Cabinet.className + ' text-offwhitetxt text-[15px]'}>Message sent!</span>
             </div>
         </section>
     )
