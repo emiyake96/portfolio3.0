@@ -1,7 +1,4 @@
 import { motion } from 'framer-motion'
-import Lottie from 'lottie-react'
-import animation from '@/public/animation.json'
-import anime from 'animejs'
 import localFont from 'next/font/local'
 import { useRef, useEffect, useState } from 'react'
 import AnimatedText from '../(components)/AnimatedText'
@@ -49,11 +46,11 @@ const Hero = () => {
         }, 1000)
 
         return () => clearTimeout(timeoutId)
-    })
+    }, [])
 
 
     return(
-        <section className='relative flex w-full h-screen select-none items-center justify-center oveflow-hidden'>
+        <section className='relative flex w-full h-screen select-none items-center justify-center overflow-hidden'>
             <div className='z-10 flex flex-col  w-full text-title items-center 2xl:text-[10vw] 2xl:space-y-16 text-offblacktxt uppercase'>
                 <div className='2xl:py-16'>
                     <AnimatedText className={generalSans.className + ' overflow-visible'} text={`Hey, I'm Eric`} transitiondelay={2}/>

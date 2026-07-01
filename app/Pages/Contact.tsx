@@ -4,7 +4,6 @@ import localFont from 'next/font/local'
 import GitHubIcon from '@mui/icons-material/GitHub';
 import LinkedInIcon from '@mui/icons-material/LinkedIn';
 import EmailIcon from '@mui/icons-material/Email';
-import HomeIcon from '@mui/icons-material/Home';
 import AnimatedText from '../(components)/AnimatedText';
 import ArticleIcon from '@mui/icons-material/Article';
 
@@ -22,7 +21,7 @@ const generalVar = localFont({
 
 const Contact = () => {
     const [ emailModalOpen, setEmailOpen ] = useState(false)
-    const [ currentTime, setCurrentTIme ] = useState(new Date())
+    const [ currentTime, setCurrentTIme ] = useState<Date | null>(null)
 
     const form = useRef<HTMLFormElement>(null)
 
@@ -50,14 +49,15 @@ const Contact = () => {
     }
 
     useEffect(() => {
+        setCurrentTIme(new Date())
         const intervalId = setInterval(() =>{
             setCurrentTIme(new Date())
         }, 1000)
 
         return () => clearInterval(intervalId)
-    }, [])    
+    }, [])
 
-    const formattedTime: string = currentTime.toLocaleTimeString()
+    const formattedTime = currentTime ? currentTime.toLocaleTimeString() : ''
 
     return (
         <section

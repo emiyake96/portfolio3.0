@@ -17,7 +17,7 @@ const Skills = () => {
     return (
         <section
             id='skills'
-            className='min-h-screen w-full px-10 md:px-5 xl:px-20 2xl:px-28 oveflow-hidden'
+            className='min-h-screen w-full px-10 md:px-5 xl:px-20 2xl:px-28 overflow-hidden'
         >
             <div className='select-none'>
                 <div className='heading flex items-center justify-center space-x-[3%]'>

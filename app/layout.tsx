@@ -1,6 +1,4 @@
 'use client'
-import type { Metadata } from 'next'
-import { Inter } from 'next/font/google'
 import Nav from '@/app/(components)/Nav'
 import Contact from '@/app/Pages/Contact'
 import About from '@/app/Pages/About'
@@ -10,8 +8,6 @@ import { useRef, useState, useEffect } from 'react'
 import Skills from './Pages/Skills'
 import Hero from './Pages/Hero'
 import { motion } from 'framer-motion'
-import Head from 'next/head'
-import em from '../public/em.png'
 import { Analytics } from '@vercel/analytics/react'
 
 
@@ -33,7 +29,7 @@ export default function RootLayout({ children }: {children: React.ReactNode}) {
     return () => {
       window.removeEventListener('mousemove', updateMousePosition)
     }
-  })
+  }, [])
 
   useEffect(() => {
     const options = {
@@ -86,7 +82,7 @@ export default function RootLayout({ children }: {children: React.ReactNode}) {
         />
       </head>
       <body>
-        <div className='cursordot opacity-0 xs:opacity-1 xl:opacity-0' style={{ left: x, top : y }}>
+        <div className='cursordot opacity-0 xs:opacity-100 xl:opacity-0' style={{ left: x, top : y }}>
         </div>
         <div>
           <div className={`${bgColor} transition-all duration-500 ease-in-out`}>

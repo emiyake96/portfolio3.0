@@ -58,7 +58,7 @@ const Card = ({card } : { card: CardType}) => {
     </a>
     );
   };
-  
+
 const Projects = ()  => {
     const [ mousePosition, setMousePosition ] = useState({ x: 0, y: 0})
     const [ scope, animate ] = useAnimate()
@@ -68,14 +68,14 @@ const Projects = ()  => {
     const { scrollYProgress } = useScroll({
       target: targetRef,
     });
-  
+
     const scrollx = useTransform(scrollYProgress, [0, 1], ["1%", "-55%"])
-        
+
 
     const updateMousePosition = (e : any) => {
       setMousePosition({ x: e.clientX, y: e.clientY })
     }
-  
+
     useEffect(() => {
       window.addEventListener('mousemove', updateMousePosition)
       return () => {
@@ -120,7 +120,7 @@ const Projects = ()  => {
                     </span>
                     {/* <div>
                         <motion.svg width="16" height="79" viewBox="0 0 16 79" fill="none" xmlns="http://www.w3.org/2000/svg">
-                            <motion.path 
+                            <motion.path
                                 variants={pathVariants}
                                 d="M7.29289 78.7071C7.68342 79.0976 8.31658 79.0976 8.70711 78.7071L15.0711 72.3431C15.4616 71.9526 15.4616 71.3195 15.0711 70.9289C14.6805 70.5384 14.0474 70.5384 13.6569 70.9289L8 76.5858L2.34315 70.9289C1.95262 70.5384 1.31946 70.5384 0.928932 70.9289C0.538408 71.3195 0.538408 71.9526 0.928932 72.3431L7.29289 78.7071ZM7 0L7 78H9L9 0L7 0Z" fill="white"/>
                         </motion.svg>
@@ -144,7 +144,7 @@ const Projects = ()  => {
             </div>
             {/* <div className='mt-10 grid grid-cols-1 gap-16 gap-y-10 md:grid-cols-12'>
                 <div className='col-span-1 md:col-span-12'>
-                
+
                 </div>
                 <div className='col-span-1 pt-0 md:col-span-7 md:pt-16'>
                     <a href='https://ticketme-arekbm.vercel.app/' target='_blank'>
@@ -190,11 +190,17 @@ type CardType = {
     id: number;
     link: string;
   };
-  
+
   const cards: CardType[] = [
     {
+        url: "./app-dark.png",
+        title: "Clair Messaging",
+        id: 0,
+        link: 'https://clair-em.vercel.app/'
+    },
+    {
         url: "./dalle.png",
-        title: "Image AI",
+        title: "Image Generator",
         id: 1,
         link: 'https://main.d2nibnnfhe4wtq.amplifyapp.com/'
     },
@@ -206,7 +212,7 @@ type CardType = {
     },
     {
         url: './kitchenSink.png',
-        title: 'KitchenSink',
+        title: 'KitchenSink Social',
         id: 3,
         link: 'https://django-server-production-550b.up.railway.app/'
     },
